@@ -1,9 +1,28 @@
 ---
+import { Image } from "astro:assets";
 import { Menu } from "@lucide/astro";
+import logo from "@/assets/logo-fisio-left-gold-white.png";
 ---
 
-<header class="justify-between pl-2 items-center flex pr-1">
-  <h1 class="font-black text-3xl text-green-900">FISIO</h1>
+<a href="#conteudo" class="fixed left-4 top-4 z-100 -translate-y-24 rounded-md bg-white px-4 py-3 font-bold text-green-bg shadow-lg">
+  Ir para o conteúdo
+</a>
 
-  <button class="p-2"><Menu class="text-green-900" size={32} stroke-width={3} /></button>
+<header class="absolute inset-x-0 top-0 z-40 border-b border-white/15">
+  <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 md:px-8">
+    <a href="#" aria-label="Fisioterapia UNAMA - Início" class="h-10 flex">
+      <Image src={logo} alt="" class="object-contain w-min" />
+    </a>
+
+    <nav aria-label="Navegação principal" class="hidden items-center gap-7 text-sm font-semibold text-white/80 md:flex">
+      <a class="transition hover:text-white" href="#novidades">Novidades</a>
+      <a class="transition hover:text-white" href="#produtos">Produtos</a>
+      <a class="transition hover:text-white" href="#contato">Contato</a>
+    </nav>
+
+    <a href="#novidades" class="rounded-full bg-gold text-sm font-extrabold text-ink transition hover:bg-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white size-10 grid place-items-center">
+      <Menu stroke-width={3} />
+    </a>
+  </div>
 </header>
+

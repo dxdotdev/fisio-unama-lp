@@ -1,0 +1,60 @@
+---
+import { Instagram, Mail, Phone, Pin } from "@lucide/astro";
+import InstagramLogo from "@/components/InstagramLogo.astro";
+
+const whatsappMessage = encodeURIComponent(
+	"Olá! Vim pelo site do Curso de Fisioterapia da UNAMA Santarém e gostaria de saber mais.",
+);
+
+const contacts = [
+	{
+		Icon: Phone,
+		title: "Coordenação",
+		detail: "Atendimento via WhatsApp",
+		href: `https://wa.me/05593991135354/?text=${whatsappMessage}`,
+	},
+	{
+		Icon: Mail,
+		title: "Comercial",
+		detail: "Envie uma mensagem",
+		href: `https://wa.me/0559399228-5135/?text=${whatsappMessage}`,
+	},
+	{
+		Icon: InstagramLogo,
+		title: "Instagram",
+		detail: "@fisioterapia.santarém",
+		href: "https://www.instagram.com/fisioterapia.santarem/",
+	},
+	{
+		Icon: Pin,
+		title: "Campus Santarém",
+		detail: "Ver localização no mapa",
+		href: "https://www.google.com/maps/place/UNAMA+-+Santar%C3%A9m/data=!4m2!3m1!1s0x0:0xc3cf703167d55e41?sa=X&ved=1t:2428&ictx=111",
+	},
+];
+---
+
+<section id="contato" class="scroll-mt-4 py-20 md:py-28">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <div class="rounded-4xl border border-border bg-white p-6 shadow-2xl shadow-green-dark/10 sm:p-10 md:p-14">
+      <div class="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold-dark">Fale com a gente</p>
+          <h2 class="mt-4 max-w-170 text-[clamp(2.15rem,5vw,3.7rem)] font-black leading-[1.05] tracking-[-0.045em]">Estamos aqui para ajudar.</h2>
+          <p class="mt-4 text-sm leading-6 text-muted">Fale com a representação estudantil sobre eventos, sugestões, parcerias e pedidos.</p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          {contacts.map(({ Icon, title, detail, href }) => (
+            <a class="flex min-h-30 items-center gap-4 rounded-[1.15rem] border border-border p-[1.15rem] transition hover:-translate-y-0.5 hover:border-green-border hover:bg-off-white-bg" href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noreferrer" : undefined}>
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-[0.9rem] bg-green-soft text-green">
+                <Icon />
+              </span>
+              <span><strong class="block">{title}</strong><small class="mt-1 block text-xs text-muted">{detail}</small></span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

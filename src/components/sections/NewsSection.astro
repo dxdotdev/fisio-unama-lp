@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import bannerVolei from "@/assets/banner-volei.jpeg";
+import logo10y from "@/assets/logo-10y.png";
+---
+
+<section id="novidades" class="scroll-mt-6 py-20 md:py-28">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold-dark">Acontece na Fisio</p>
+        <h2 class="mt-4 max-w-170 text-[clamp(2.15rem,5vw,3.7rem)] font-black leading-[1.05] tracking-[-0.045em]">Novidades e próximos eventos.</h2>
+      </div>
+      <p class="max-w-md text-sm leading-6 text-muted">Acompanhe as iniciativas que conectam estudantes, profissionais e a comunidade acadêmica.</p>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-[1.35fr_.65fr]">
+      <div>
+        <article class="group relative min-h-110 overflow-hidden rounded-[1.75rem] bg-green-bg text-white transition-transform duration-300 hover:-translate-y-1">
+          <Image src={bannerVolei} alt="Arte do primeiro torneio de vôlei de Fisioterapia" class="absolute inset-0 h-4/5 w-full object-cover transition duration-500 group-hover:scale-[1.025]" />
+          <div class="absolute inset-0 bg-linear-to-t from-green-dark via-green-dark/80 to-transparent h-2/3 mt-auto"></div>
+
+          <div class="absolute inset-x-0 bottom-0 p-6 sm:p-9">
+            <span class="rounded-full bg-gold px-3 py-1 text-[10px] font-extrabold uppercase tracking-[.15em] text-ink">Evento esportivo</span>
+            <h3 class="mt-4 text-2xl font-black sm:text-3xl">1º Torneio de Vôlei da Fisioterapia</h3>
+            <p class="mt-2 text-sm text-white/75">Monte sua equipe e participe desta programação da Semana Acadêmica.</p>
+          </div>
+        </article>
+      </div>
+
+      <div>
+        <article class="overflow-hidden rounded-[1.75rem] border border-border bg-white transition-transform duration-300 hover:-translate-y-1">
+          <Image src={logo10y} alt="Cartaz de inscrição para o torneio de vôlei" class="aspect-square w-full object-cover md:aspect-4/3" />
+
+          <div class="p-6">
+            <p class="text-xs font-extrabold uppercase tracking-[.16em] text-gold-dark">Inscrições abertas</p>
+            <h3 class="mt-2 text-xl font-black">Semana Acadêmica</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">Confira a programação e acompanhe.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+

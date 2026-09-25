@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+import { ArrowRight, Check } from "@lucide/astro";
+import shirtImage from "@/assets/products/camisa.jpeg";
+import mugImage from "@/assets/products/caneca.jpeg";
+import badgeImage from "@/assets/products/crachá.jpeg";
+
+const products = [
+	{
+		name: "Caneca + tirante",
+		description: "Caneca exclusiva da Fisioterapia com tirante personalizado.",
+		image: mugImage,
+		alt: "Canecas brancas e tirante personalizados da Fisioterapia UNAMA",
+		price: "R$ 49,90",
+	},
+	{
+		name: "Camisa LAFIETO",
+		description:
+			"Modelo em tom areia com estampa autoral na frente e nas costas.",
+		image: shirtImage,
+		alt: "Frente e costas da camisa LAFIETO em tom areia",
+		price: "R$ 64,90",
+	},
+	{
+		name: "Crachá + cordão",
+		description: "Identificação oficial com cordão acetinado personalizado.",
+		image: badgeImage,
+		alt: "Crachá verde e cordão da Semana Acadêmica de Fisioterapia",
+		price: "R$ 24,90",
+	},
+];
+---
+
+<section id="produtos" class="scroll-mt-4 py-20 md:py-28 bg-cream-bg">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold-dark">Nossa identidade</p>
+        <h2 class="mt-4 max-w-[680px] text-[clamp(2.15rem,5vw,3.7rem)] font-black leading-[1.05] tracking-[-0.045em]">Leve a Fisio com você.</h2>
+      </div>
+      <p class="max-w-md text-sm leading-6 text-muted">Adquira os produtos oferecidos pelo curso.</p>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-3">
+      {products.map((product, index) => (
+        <div>
+          <article class="group overflow-hidden rounded-[1.6rem] bg-white shadow-xl shadow-green-dark/10 transition-transform duration-300 hover:-translate-y-1">
+            <div class="relative aspect-4/3 overflow-hidden bg-border">
+              <span class="absolute left-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-[10px] font-extrabold uppercase tracking-wider text-green backdrop-blur">0{index + 1}</span>
+              <Image src={product.image} alt={product.alt} class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
+            </div>
+            <div class="p-6">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="text-xl font-black">{product.name}</h3>
+                <strong class="shrink-0 text-lg text-gold-dark">{product.price}</strong>
+              </div>
+              <p class="mt-2 min-h-12 text-sm leading-6 text-muted">{product.description}</p>
+              <a href={`https://wa.me/?text=${encodeURIComponent(`Olá! Gostaria de reservar: ${product.name}.`)}`} target="_blank" rel="noreferrer" class="mt-5 inline-flex items-center gap-2 text-sm font-extrabold text-green underline-offset-4 hover:underline" aria-label={`Reservar ${product.name}`}>
+                Adquirir <ArrowRight class="h-4 w-4" />
+              </a>
+            </div>
+          </article>
+        </div>
+      ))}
+    </div>
+
+    <div class="relative mt-6 overflow-hidden rounded-[1.8rem] bg-green-bg text-white">
+      <article>
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(var(--color-gold)_1px,transparent_1px)] [background-size:22px_22px] [mask-image:linear-gradient(to_right,black,transparent_75%)]" aria-hidden="true"></div>
+        <div class="relative grid md:grid-cols-[1fr_.95fr]">
+          <div class="order-2 p-7 sm:p-10 md:order-1 md:p-14">
+            <span class="inline-flex rounded-full bg-gold px-3 py-1 text-[11px] font-extrabold uppercase tracking-[.16em] text-ink">Melhor escolha</span>
+
+            <h3 class="mt-5 text-3xl font-black tracking-tight sm:text-4xl">Combo Fisio Completo</h3>
+            <p class="mt-3 text-2xl font-black text-gold-light">R$ 124,90</p>
+            <p class="mt-3 max-w-lg text-sm leading-6 text-white/68 sm:text-base">Caneca com tirante, camisa LAFIETO e crachá com cordão em um único pedido.</p>
+
+            <ul class="mt-6 grid gap-2 text-sm text-white/85 sm:grid-cols-2" aria-label="Itens inclusos no combo">
+              {["Caneca personalizada", "Tirante exclusivo", "Camisa LAFIETO", "Crachá e cordão"].map((item) => (
+                <li class="flex items-center gap-2">
+                  <span class="grid h-5 w-5 place-items-center rounded-full bg-gold text-xs font-black text-ink"><Check size={20} stroke-width={3} /></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a href={`https://wa.me/?text=${encodeURIComponent("Olá! Quero reservar o Combo Fisio Completo.")}`} target="_blank" rel="noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 font-extrabold text-green transition hover:bg-gold-light-bg">
+              Quero o combo <ArrowRight />
+            </a>
+          </div>
+          <div class="order-1 min-h-64 md:order-2">
+            <Image src={mugImage} alt="Canecas e tirante que compõem o combo Fisio Completo" class="h-full w-full object-cover" />
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+

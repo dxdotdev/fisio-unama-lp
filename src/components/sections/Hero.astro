@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import { ArrowRight, Book, Calendar, Clock } from "@lucide/astro";
+import art from "@/assets/art.png";
+
+const whatsappMessage = encodeURIComponent(
+	"Olá! Vim pelo site do Curso de Fisioterapia da UNAMA Santarém e gostaria de saber mais.",
+);
+
+const highlights = [
+	{ Icon: Calendar, title: "Eventos", text: "Agenda acadêmica" },
+	{ Icon: Book, title: "Palestras", text: "Conhecimento em rede" },
+	{ Icon: Clock, title: "Programações", text: "Tudo em um só lugar" },
+];
+---
+
+<section class="relative overflow-hidden bg-green-bg pt-20 text-white">
+  <div class="absolute inset-0 opacity-[0.04] bg-[linear-gradient(var(--color-white)_1px,transparent_1px),linear-gradient(90deg,var(--color-white)_1px,transparent_1px)] bg-size-[48px_48px] mask-[linear-gradient(to_right,transparent,black)]" aria-hidden="true"></div>
+  <div class="absolute -right-20 top-24 h-72 w-72 rounded-full bg-gold-bg/15 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative mx-auto grid min-h-170 max-w-7xl items-center px-5 pt-25 md:min-h-180 md:grid-cols-[1.05fr_.95fr] md:px-8 md:py-20">
+    <div class="z-10 max-w-2xl">
+      <p class="mb-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.25em] text-gold text-balance">
+        <span class="h-px w-9 bg-gold"></span>
+        Curso de Fisioterapia da UNAMA-Santarém
+      </p>
+
+      <h1 class="text-[2.85rem] font-black leading-[0.98] tracking-[-0.045em] sm:text-6xl md:text-7xl">
+        Estude
+        <span class="block font-serif italic text-gold-light">fisioterapia</span>
+        na Unama Santarém
+      </h1>
+
+      <p class="mt-7 max-w-xl text-base leading-7 text-white/72 sm:text-lg text-balance">
+        Somos o melhor curso de fisioterapia de uma IES particular da região norte!
+      </p>
+
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <a
+          href={`https://wa.me/05593991135354/?text=${whatsappMessage}`}
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gold px-6 font-extrabold text-ink transition hover:bg-gold-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          Falar com a Coordenação<ArrowRight />
+        </a>
+
+        <a href="#novidades" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 font-bold transition hover:bg-white/10">
+          Ver programação
+        </a>
+      </div>
+    </div>
+
+    <div class="relative mt-12 h-75 md:mt-0 md:h-130">
+      <div aria-hidden="true" class="h-full">
+        <div class="absolute inset-x-8 rounded-full border border-gold/35 md:inset-x-12 aspect-square"></div>
+        <div class="absolute inset-x-14 top-6 md:top-8 rounded-full bg-linear-to-b from-green-light to-green-dark md:inset-x-20 aspect-square"></div>
+        <Image src={art} alt="" class="absolute inset-0 top-0 h-full w-full object-contain object-center drop-shadow-2xl -my-6" />
+      </div>
+    </div>
+  </div>
+
+  <div class="relative border-t border-white/15 bg-green-dark/50">
+    <div class="mx-auto grid max-w-7xl grid-cols-3 divide-x divide-white/15 px-5 md:px-8">
+      {highlights.map(({ Icon, title, text }) => (
+        <div class="flex flex-col items-center gap-2 px-2 py-6 text-center sm:flex-row sm:justify-center sm:px-6 sm:text-left">
+          <Icon class="h-5 w-5 shrink-0 text-gold" />
+
+          <div>
+            <strong class="block text-xs sm:text-sm">{title}</strong>
+            <span class="hidden text-xs text-white/55 sm:block">{text}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
