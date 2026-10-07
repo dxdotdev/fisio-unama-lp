@@ -3,13 +3,14 @@ import { Image } from "astro:assets";
 import { ArrowRight, Check } from "@lucide/astro";
 import badgeImage from "@/assets/products/crachá.jpeg";
 import shirtImage from "@/assets/products/MOSTRUÁRIO CAMISA.png";
+import onlyMugImage from "@/assets/products/MOSTRUÁRIO CANECA.png";
 import mugImage from "@/assets/products/MOSTRUÁRIO CANECA E TIRANTE.png";
 import comboImage from "@/assets/products/MOSTRUÁRIO COMBO.jpeg";
 import necklaceImage from "@/assets/products/MOSTRUÁRIO TIRANTE.png";
 
 const products = [
 	{
-		name: "Caneca + Tirante",
+		name: "Caneca + Tirante de Crachá",
 		description: "Caneca exclusiva da Fisioterapia com tirante personalizado.",
 		image: mugImage,
 		alt: "",
@@ -17,22 +18,22 @@ const products = [
 		link: "https://forms.gle/U1cXJhkHjvrkd2Wt9",
 	},
 	{
-		name: "Camisa Dry Fit",
+		name: "Tirante de Crachá + Capinha",
 		description:
-			"Camisa personalizada oficial da Semana Acadêmica de Fisioterapia.",
-		image: shirtImage,
-		alt: "",
-		price: "R$ 45,00",
-		link: "https://forms.gle/fqFAtjMQwsHjNSVbA",
-	},
-	{
-		name: "Tirante + Capinha",
-		description:
-			"Tirante e capinha personalizada da Semana Acadêmica de Fisioterapia.",
+			"Tirante de crachá e capinha personalizada da Semana Acadêmica de Fisioterapia.",
 		image: necklaceImage,
 		alt: "",
 		price: "R$ 20,00",
 		link: "https://forms.gle/5dZWj9Uz1F9jnNPG8",
+	},
+	{
+		name: "Caneca + Inscrição",
+		description:
+			"Caneca personalizada e inscrição da Semana Acadêmica de Fisioterapia.",
+		image: onlyMugImage,
+		alt: "",
+		price: "R$ 60,00",
+		link: "https://forms.gle/nXAidAcnKkz8R1hS7",
 	},
 ];
 ---
@@ -81,13 +82,13 @@ const products = [
         <div class="relative grid md:grid-cols-[1fr_.95fr]">
           <div class="order-2 p-7 sm:p-10 md:order-1 md:p-14">
             <span class="inline-flex rounded-full bg-gold px-3 py-1 text-[11px] font-extrabold uppercase tracking-[.16em] text-ink">Melhor escolha</span>
+            <h3 class="mt-5 text-3xl font-black tracking-tight sm:text-4xl">Combo Caneca + Tirante de Crachá + Inscrição</h3>
 
-            <h3 class="mt-5 text-3xl font-black tracking-tight sm:text-4xl">Combo Fisio Completo</h3>
-            <p class="mt-3 text-2xl font-black text-gold-light">R$ 100,00</p>
-            <p class="mt-3 max-w-lg text-sm leading-6 text-white/68 sm:text-base">Camisa, caneca com tirante e inscrição em um único pedido.</p>
+            <p class="mt-3 text-2xl font-black text-gold-light">R$ 80,00</p>
+            <p class="mt-3 max-w-lg text-sm leading-6 text-white/68 sm:text-base"></p>
 
             <ul class="mt-6 grid gap-2 text-sm text-white/85 sm:grid-cols-2" aria-label="Itens inclusos no combo">
-              {["Camisa personalizada", "Caneca e tirante", "Inscrição na Semana Acadêmica"].map((item) => (
+              {["Caneca personalizada", "Tirante de Crachá", "Inscrição na Semana Acadêmica"].map((item) => (
                 <li class="flex items-center gap-2">
                   <span class="grid h-5 w-5 place-items-center rounded-full bg-gold text-xs font-black text-ink"><Check size={20} stroke-width={3} /></span>
                   {item}
@@ -95,13 +96,13 @@ const products = [
               ))}
             </ul>
 
-            <a href="https://forms.gle/mD4skbRrW4itFjKb9" target="_blank" rel="noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 font-extrabold text-green transition hover:bg-gold-light-bg">
+            <a href="https://forms.gle/ZTqmuAP1yhsvPwxC6" target="_blank" rel="noreferrer" class="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 font-extrabold text-green transition hover:bg-gold-light-bg">
               Quero o combo <ArrowRight />
             </a>
           </div>
 
           <div class="order-1 min-h-64 md:order-2">
-            <Image src={comboImage} alt="" class="h-full w-full object-cover" />
+            <Image src={mugImage} alt="" class="h-full w-full object-cover" />
           </div>
         </div>
       </article>
